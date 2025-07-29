@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMW M5 Competition</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      z-index: 10;
+    }
+    .logo img {
+      height: 40px;
+    }
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+    .nav-links li {
+      cursor: pointer;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-links li::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #0050ff;
+      transition: width 0.3s ease;
+    }
+    .nav-links li:hover::after,
+    .nav-links li.active::after {
+      width: 100%;
+    }
+    .nav-icons a {
+      margin-left: 20px;
+      cursor: pointer;
+      font-size: 18px;
+      text-decoration: none;
+      color: inherit;
+    }
+    .dropdown-parent {
+      position: relative;
+    }
+    .dropdown-parent:hover .more-bmw-panel {
+      display: flex;
+    }
+    .more-bmw-panel {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100vw;
+      background: #fff;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      padding: 30px 50px;
+      z-index: 9;
+      border-top: 1px solid #ccc;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+    }
+    .more-bmw-panel .column {
+      min-width: 220px;
+    }
+    .more-bmw-panel h3 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+    .more-bmw-panel ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .more-bmw-panel li {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+    .hero-text {
+      position: absolute;
+      top: 30%;
+      left: 5%;
+      color: white;
+      z-index: 1;
+      max-width: 90%;
+    }
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+    .hero-text p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+    .content, .content1, .content2, .content3 {
+      display: flex;
+      justify-content: space-between;
+      padding: 5vh 5vw;
+      gap: 40px;
+      text-align: justify;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .content > div, .content1 > div, .content2 > div, .content3 > div {
+      flex: 1;
+    }
+    .content2 img, .content3 img {
+      width: 100%;
+      height: auto;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+    .Disclaimer {
+      background-color: rgb(220, 217, 217);
+      display: flex;
+      justify-content: space-between;
+      padding: 5vh 5vw;
+      gap: 40px;
+      text-align: justify;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+    .section-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+    .section-image img {
+      width: 80%;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: brightness(0.85);
+    }
+    .bottom-nav {
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #fff;
+      height: 7vh;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+    }
+    .bottom-nav i {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+    .nav-link-item {
+      text-decoration: none;
+      color: inherit;
+      font-weight: 500;
+      display: inline-block;
+      position: relative;
+      padding-bottom: 4px;
+    }
+    .nav-link-item::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #0050ff;
+      transition: width 0.3s ease;
+    }
+    .nav-link-item:hover::after {
+      width: 100%;
+    }
+    .nav-links a {
+      text-decoration: none;
+      color: inherit;
+    }
+  </style>
+</head>
+<body>
+  <header class="navbar">
+    <div class="logo">
+      <img src="../image/BMW_Grey-Colour_RGB.SVG.asset.1697707041685.SVG" alt="BMW Logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li class="nav-link-item"><a href="https://www.bmw.in/en/all-models.html">Models</a></li>
+        <li class="nav-link-item"><a href="https://www.bmw.in/en/topics/Fascination-BMW/electromobility2020-new/electric-cars.html">Electric</a></li>
+        <li class="nav-link-item"><a href="https://www.bmw.in/en/configurator.html">Configurator</a></li>
+        <li class="dropdown-parent"><a href="">Visit Online Shop <i class="bi bi-chevron-down"></i></a>
+          <div class="more-bmw-panel">
+            <div class="column">
+              <h3>Financial Services</h3>
+              <ul>
+                <li><a href="">Buy New Vehicle</a></li>
+                <li><a href="">Pre-Book and Exclusive Editions</a></li>
+                <li><a href="">Configure Your Own</a></li>
+                <li><a href="">Current Offers</a></li>
+                <li><a href="">BMW Connected Drive Store</a></li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <li class="dropdown-parent">
+          More BMW <i class="bi bi-chevron-down"></i>
+          <div class="more-bmw-panel">
+            <div class="column">
+              <h3>Financial Services</h3>
+              <ul>
+                <li>Overview</li>
+                <li>Loan</li>
+                <li>BMW 360° Finance Plan</li>
+                <li>Leasing</li>
+                <li>Extended Warranty</li>
+                <li>FAQs</li>
+                <li>Corporate Governance</li>
+                <li>BEV FAQs</li>
+                <li>Special Offers</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <a href=""><i class="bi bi-person"></i></a>
+      <a href="https://www.bmw.in/en/shop/ls/cart/digital-services"><i class="bi bi-cart"></i></a>
+      <a href="https://customer.bmwgroup.com/oneid/#/login?client=bmwwebcom&country=IN&language=en&brand=bmw&scope=svds%20remote_services%20vehicle_data%20authenticate_user%20smacc%20fupo%20cesim%20perseus&response_type=code&redirect_uri=https%3A%2F%2Fwww.bmw.in%2Fstatic%2Flogin%2Ftoken-handler&state=eyJyZXR1cm5VUkwiOiJodHRwczovL3d3dy5ibXcuaW4vZW4taW4vbXlibXcvZ2FyYWdlL3dpc2hsaXN0IiwiZGF0YSI6eyJsYW5ndWFnZSI6ImVuIiwiY291bnRyeSI6ImluIiwiYnJhbmQiOiJibXcifX0=" target="_blank"><i class="bi bi-heart"></i></a>
+      <a href="https://www.bmw.in/en/fastlane/dealer-locator.html"><i class="bi bi-geo-alt"></i></a>
+    </div>
+  </header>
+
+
+
+  <section class="hero-banner">
+    <img src="../image/cq5dam.resized.img.1680.large.time1544766919759.jpg" alt="BMW M5 Hero">
+    <div class="hero-text">
+      <h1>WOLF IN SHEEP'S CLOTHING.</h1>
+      <p>THE BMW M5 COMPETITION EDITION. PUSHING LIMITS. STRICTLY LIMITED.</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div>
+      <p>Very few sedans generate as much heart beating and adrenaline as the BMW M5. Especially when it comes in a limited Special Edition with Competition Package. Cast in the visually stunning BMW Individual special paint finish: Mineral White metallic, this exceptional BMW M5 also sets the pulses racing with its elegant side.</p>
+    </div>
+    <div>
+      <p>Breathtaking 600 HP (441 kW). A modified suspension with firmer spring and damper set-up ensures even more dynamic control. The specially adjusted ride height lowered by 10 millimetres provides more stability, both on the race track and in everyday use. The steering with M specific Servotronic Mode and directly configured characteristic curve ensure that every steering command is performed with maximum precision.</p>
+    </div>
+  </section>
+
+  <div class="section-image">
+    <img src="../image/cq5dam.resized.img.1185.large.time1473417299406.jpg" alt="BMW Rear">
+  </div>
+
+  <section class="content1">
+    <div>
+      <p>The BMW M5 unites two worlds more than any other car: ultimate motor sport feeling and everyday suitability.
+
+The already dynamic look is boosted once again by the BMW M Performance Parts.
+
+ 
+
+<h2 >EXCLUSIVE EXTERIOR HIGHLIGHTS OF THE SPECIAL EDITION:</h2>
+
+▰ M gills element with “M5 Competition” logo</p>
+    </div>
+    <div>
+      <p>▰ 20” BMW M light alloy wheels double-spoke 601 M with exclusive paint in Jetblack uni, gloss-lathed</p>
+    
+
+<p>▰ Twin tailpipe of the exhaust system in black chrome</p>
+
+<p>▰ BMW M Performance front grille in black</p>
+
+<p>▰ BMW M Performance door mirror caps Carbon</p>
+
+<p>▰ BMW M Performance rear diffuser Carbon</p>
+
+<p>▰ BMW M Performance rear spoiler Carbon</p>
+
+    </div>
+  </section>
+
+   <section class="content2">
+    <div>
+      <img src="../image/111.jpg" alt="">
+      <h1>EXCLUSIVE INTERIOR HIGHLIGHTS OF THE SPECIAL EDITION:</h1>
+
+      <p>▰ BMW M multifunctional seats in fine-grain Merino
+leather Black</p>
+
+<p>▰ BMW Individual Manufaktur: contrast seams in Opal White.</p>
+
+<p>▰ BMW Individual Manufaktur: headrests with
+"M5" embroidery</p>
+
+<p>▰ BMW Individual Manufaktur: Floor mats in Velour with bordering in BMW Individual fine-grain Merino leather in Opal White</p>
+    </div>
+    <div>
+      <img src="../image/222.jpg" alt="">
+   <p>▰ BMW M Performance interior trims Carbon with “M5 Competition - 1/200” signet</p>
+
+   <p>The BMW M5 Competition Edition continues its exceptionally dynamic look in both the exterior and the interior. The BMW Individual Manufaktur sets unparalleled aesthetic standards, which give it a thoroughly exclusive character.</p>
+    </div>
+  </section>
+
+   <section class="content3">
+    <div>
+      <img src="../image/333.jpg" alt="">
+    <p>▰ 4.4 litre M TwinPower Turbo 8-cylinder petrol engine</p> 
+
+<p>▰ Performance increase to 441 kW/600 HP</p>
+
+<p>▰ Modified exhaust system with distinctly sporty motor sound</p>
+
+<h1>DRIVING PERFORMANCE:</h1>
+
+<p>▰ From 0 to 100 km/h in 3.9 seconds (with M DCT)</p>
+
+<p>▰ From 0 to 200 km/h in 11.9 seconds (with M DCT)</p>
+
+<p>▰ Acceleration from 80 to 120 km/h in fourth/fifth gear in 3.6/4.5 seconds (with M DCT)</p>
+    </div>
+
+    <div>
+
+    </div>
+    
+  </section>
+
+ <div class="bottom-nav">
+     <div><i class="bi bi-cart-fill"></i> <a href="https://www.bmw.in/en-in/sl/stocklocator#/results?filters={%22IS_INSTALLMENT%22:true,%22PRODUCT_CATEGORY_TYPE%22:[%22LOAN%22]}" style="text-align:center; text-decoration: none; color: inherit;">
+Buy online</a></div>
+
+  <a href="https://www.bmw.in/forms/tda/test-drive-request.html?modelRange=G87" style="text-align:center; text-decoration: none; color: inherit;">
+    <div><i class="bi bi-car-front-fill"></i>Book a Test drive</div>
+  </a>
+  
+  <a href="https://www.bmw.in/en/fastlane/dealer-locator.html" style="text-align:center; text-decoration: none; color: inherit;">
+    <div><i class="bi bi-geo-alt"></i>Find a dealer</div>
+  </a>
+  
+  <a href="https://www.bmw.in/en/topics/special-offers.html" style="text-align:center; text-decoration: none; color: inherit;">
+    <div><i class="bi bi-telephone-fill"></i>Current Offers</div>
+  </a>
+</div>
+
+
+  <section class="Disclaimer">
+    <div>
+     
+      <h1>Disclaimer.</h1>
+<p>Performance data as measured in the emission test done under controlled conditions of environment, driving cycle, fuel etc. as specified in appropriate European Regulations / Directive’ </p><br>
+<p>The models, equipment and possible vehicle configurations illustrated in this specification sheet may differ from vehicles supplied in the Indian market.</p><br>
+<p>Some options may contain mandatory combinations with other options. Please check with your local Authorised BMW Dealer.</p><br>
+<p>Terms and conditions apply. For further information please contact your local Authorised BMW Dealer.</p><br>
+<p>For detailed terms & conditions, scope of services (inclusions & exclusions) and coverage duration (in years) & mileage (in kilometers), please refer BSI brochure and/or contact your BMW authorized dealer.</p><br>
+<p>The figures were obtained under European test conditions and might differ in the local market.</p><br>
+    </div>
+  </section>
+
+</body>
+</html>

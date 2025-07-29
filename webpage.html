@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BMW M5 Competition</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff;
+      color: #333;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #fff;
+      border-bottom: 1px solid #ccc;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .logo img {
+      height: 40px;
+    }
+
+    .nav-links {
+      list-style: none;
+      display: flex;
+      gap: 30px;
+      padding: 0;
+      margin: 0;
+    }
+
+    .nav-links li {
+      cursor: pointer;
+      position: relative;
+      padding-bottom: 4px;
+    }
+
+    .nav-links li::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      height: 2px;
+      width: 0;
+      background-color: #0050ff;
+      transition: width 0.3s ease;
+    }
+
+    .nav-links li:hover::after,
+    .nav-links li.active::after {
+      width: 100%;
+    }
+
+    .nav-icons i {
+      margin-left: 20px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
+    .hero-banner {
+      position: relative;
+      width: 100%;
+      height: 90vh;
+      overflow: hidden;
+    }
+
+    .hero-banner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.7);
+    }
+
+    .hero-text {
+      position: absolute;
+      top: 30%;
+      left: 5%;
+      color: white;
+      z-index: 1;
+      max-width: 90%;
+    }
+
+    .hero-text h1 {
+      font-size: 2.5rem;
+      margin-bottom: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1.1rem;
+      line-height: 1.4;
+    }
+
+    .content {
+      display: flex;
+      justify-content: space-between;
+      padding: 5vh 5vw;
+      gap: 40px;
+      text-align: justify;
+      font-size: 18px;
+      line-height: 1.8;
+    }
+
+    .content > div {
+      flex: 1;
+    }
+
+    .section-image {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      margin: 40px 0;
+    }
+
+    .section-image img {
+      width: 80%;
+      object-fit: cover;
+      border-radius: 10px;
+      filter: brightness(0.85);
+    }
+
+    .mega-footer {
+      display: flex;
+      justify-content: space-around;
+      padding: 60px 40px;
+      background: #f7f7f7;
+      font-size: 16px;
+      flex-wrap: wrap;
+      gap: 40px;
+    }
+
+    .column h3 {
+      margin-bottom: 15px;
+      font-weight: 600;
+    }
+
+    .column ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .column ul li {
+      margin-bottom: 10px;
+      cursor: pointer;
+    }
+
+    .bottom-nav {
+      position: sticky;
+      bottom: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background: #fff;
+      height: 7vh;
+      font-size: 14px;
+      border-top: 1px solid #ccc;
+    }
+
+    .bottom-nav i {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 2px;
+    }
+
+    .dropdown {
+      position: relative;
+    }
+
+    .mega-menu {
+      display: none;
+      position: absolute;
+      left: 0;
+      top: 100%;
+      background: #fff;
+      width: 100vw;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      display: flex;
+      justify-content: space-around;
+      gap: 30px;
+      z-index: 20;
+      font-size: 14px;
+    }
+
+    .dropdown:hover .mega-menu {
+      display: flex;
+    }
+
+    .mega-menu .column {
+      flex: 1;
+      min-width: 200px;
+    }
+
+    .mega-menu .column h3 {
+      font-size: 16px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .mega-menu .column ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .mega-menu .column ul li {
+      padding: 5px 0;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .mega-menu .column ul li:hover {
+      color: #0050ff;
+    }
+  </style>
+</head>
+<body>
+
+  <header class="navbar">
+    <div class="logo">
+      <img src="../image/BMW_Grey-Colour_RGB.SVG.asset.1697707041685.SVG" alt="BMW Logo">
+    </div>
+    <nav>
+      <ul class="nav-links">
+        <li class=" ">Models</li>
+        <li>Electric</li>
+        <li>Configurator</li>
+        <li>Visit Online Shop</li>
+        <li class=" ">More BMW
+          <div class="mega-menu">
+            <div class="column">
+              <h3>Financial Services</h3>
+              <ul>
+                <li>Overview ↗</li>
+                <li>Loan ↗</li>
+                <li>BMW 360° Finance Plan ↗</li>
+                <li>Leasing ↗</li>
+                <li>Extended Warranty ↗</li>
+                <li>FAQs ↗</li>
+                <li>Corporate Governance ↗</li>
+                <li>BEV FAQs ↗</li>
+                <li>Special Offers ↗</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h3>Digital Services & Apps</h3>
+              <ul>
+                <li>BMW ConnectedDrive ↗</li>
+                <li>BMW Remote Software Upgrade ↗</li>
+                <li>BMW Digital Key ↗</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h3>Service & Maintenance</h3>
+              <ul>
+                <li>BMW Service ↗</li>
+                <li>Smart Video ↗</li>
+                <li>Request for Service ↗</li>
+                <li>Warranty Policy ↗</li>
+                <li>Service Inclusive ↗</li>
+                <li>BMW Service Cost Estimator ↗</li>
+                <li>Package Status Check ↗</li>
+                <li>Recall Information ↗</li>
+                <li>Original BMW Engine Oil ↗</li>
+                <li>BMW Joy Rewards ↗</li>
+                <li>Accident Management ↗</li>
+              </ul>
+            </div>
+            <div class="column">
+              <h3>Technology & Innovation</h3>
+              <ul>
+                <li>BMW Next 100 ↗</li>
+                <li>BMW i ↗</li>
+                <li>BMW Safety ↗</li>
+                <li>BMW Heart of Joy ↗</li>
+              </ul>
+            </div>
+          </div>
+        </li>
+      </ul>
+    </nav>
+    <div class="nav-icons">
+      <i class="bi bi-person"></i>
+      <i class="bi bi-cart"></i>
+      <i class="bi bi-heart"></i>
+      <i class="bi bi-geo-alt"></i>
+    </div>
+  </header>
+
+  <section class="hero-banner">
+    <img src="../image/cq5dam.resized.img.1680.large.time1544766919759.jpg" alt="BMW M5 Hero">
+    <div class="hero-text">
+      <h1>WOLF IN SHEEP'S CLOTHING.</h1>
+      <p>THE BMW M5 COMPETITION EDITION. PUSHING LIMITS. STRICTLY LIMITED.</p>
+    </div>
+  </section>
+
+  <section class="content">
+    <div>
+      <p>Very few sedans generate as much heart beating and adrenaline as the BMW M5. Especially when it comes in a limited Special Edition with Competition Package. Cast in the visually stunning BMW Individual special paint finish: Mineral White metallic, this exceptional BMW M5 also sets the pulses racing with its elegant side.</p>
+    </div>
+    <div>
+      <p>Breathtaking 600 HP (441 kW). A modified suspension with firmer spring and damper set-up ensures even more dynamic control. The specially adjusted ride height lowered by 10 millimetres provides more stability, both on the race track and in everyday use. The steering with M specific Servotronic Mode and directly configured characteristic curve ensure that every steering command is performed with maximum precision.</p>
+    </div>
+  </section>
+
+  <div class="section-image">
+    <img src="../image/cq5dam.resized.img.1185.large.time1473417299406.jpg" alt="BMW Rear">
+  </div>
+
+  <footer class="mega-footer">
+    <div class="column">
+      <h3>Shop Online</h3>
+      <ul>
+        <li>Buy New Vehicle</li>
+        <li>Pre-Book and Exclusive Editions</li>
+        <li>Configure Your Own</li>
+        <li>Current Offers</li>
+        <li>BMW Connected Drive Store</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Financial Services</h3>
+      <ul>
+        <li>Overview</li>
+        <li>Loan</li>
+        <li>BMW 360° Finance Plan</li>
+        <li>Leasing</li>
+        <li>Extended Warranty</li>
+        <li>FAQs</li>
+        <li>Corporate Governance</li>
+        <li>BEV FAQs</li>
+        <li>Special Offers</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Digital Services & Apps</h3>
+      <ul>
+        <li>BMW ConnectedDrive</li>
+        <li>BMW Remote Software Upgrade</li>
+        <li>BMW Digital Key</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Service & Maintenance</h3>
+      <ul>
+        <li>BMW Service</li>
+        <li>Smart Video</li>
+        <li>Request for Service</li>
+        <li>Warranty Policy</li>
+        <li>Service Inclusive</li>
+        <li>BMW Service Cost Estimator</li>
+        <li>Package Status Check</li>
+        <li>Recall Information</li>
+        <li>Original BMW Engine Oil</li>
+        <li>BMW Joy Rewards</li>
+        <li>Accident Management</li>
+      </ul>
+    </div>
+    <div class="column">
+      <h3>Technology & Innovation</h3>
+      <ul>
+        <li>BMW Next 100</li>
+        <li>BMW i</li>
+        <li>BMW Safety</li>
+        <li>BMW Heart of Joy</li>
+      </ul>
+    </div>
+  </footer>
+
+  <div class="bottom-nav">
+    <i class="bi bi-cart-fill">Buy online</i>
+    <i class="bi bi-car-front-fill">Book a Test drive</i>
+    <i class="bi bi-geo-alt">Find a dealer</i>
+    <i class="bi bi-telephone-fill">Current Offers</i>
+  </div>
+
+</body>
+</html>
