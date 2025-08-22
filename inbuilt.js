@@ -16,3 +16,17 @@ console.log(str.lastIndexOf("l"));  //find last index of substring
 console.log(str.search(/H/i)); 
 console.log(str.replace("javascript", "TypeScript")); 
 console.log(str.slice(-6));   //extract substring
+console.log(str.substring(-6));   //extract substring
+
+
+
+console.log(Array.from(str.matchAll("l")));
+let Letter=" Javascript";
+console.log(Letter.padStart(20, "DHVGSUIG").padEnd(30, "XYZ"));  //pad start with 'DHVGSUIG'
+console.log(Letter.padEnd(20, "DHVGSUIG"));  //pad end with 'DHVGSUIG'
+console.log(Letter.repeat(4));
+console.log(Letter.length);
+console.log(Letter.trim ( ));
+console.log(Letter.includes("cs")); //checks if includes
+console.log(Letter.startsWith(" Ja")); //checks if starts with
+console.log(Letter.endsWith("pt")); //checks if ends with
